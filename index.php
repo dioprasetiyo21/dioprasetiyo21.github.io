@@ -1,0 +1,732 @@
+<?php
+                        if(isset($_POST['submit'])){
+
+                          require 'assets/phpmailer/PHPMailerAutoload.php';
+                          $mail = new PHPMailer;
+
+                          $mail->Host='smtp.gmail.com';
+                          $mail->Port=587;
+                          $mail->SMTPAuth=true;
+                          $mail->SMTPSecure='tls';
+                          $mail->Username='dioprasetiyo@gmail.com';
+                          $mail->Password='Dayo214421';
+
+                          $mail->setFrom($_POST['email']);
+                          $mail->addAddress('dayoprasetyo4@gmail.com');
+                          $mail->addReplyTo($_POST['email']);
+
+                          $mail->isHTML(true);
+                          $mail->Subject='Form Submission: '.$_POST['subject'];
+                          $mail->Body='<h1> Email: '.$_POST['email'].'<br>Message: '.$_POST['content'].'</h1>';
+
+                          if (!$mail->send()){
+                          
+                            echo '<div id="info-message" class="container alert alert-danger text-center fixed-top" >Terjadi Kesalahan, Ulangi beberapa saat lagi</div>';
+                            
+                          }else{
+                         
+                            echo '<div id="info-message" class="container alert alert-success text-center fixed-top" >Terima Kasih Email anda berhasil terkirim.</div>';
+                          }
+                        }
+
+                      ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>DevFolio </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/logo1.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+     <!-- JS -->
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <!-- =======================================================
+  * Template Name: DevFolio - v4.3.0
+  * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.php">DevFolio</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Halaman Utama</a></li>
+          <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
+          <li><a class="nav-link scrollto" href="#services">Kemampuan</a></li>
+        
+          <li><a class="nav-link scrollto " href="#blog">Pengalaman</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+    <div class="overlay-itro"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <!--<p class="display-6 color-d">Hello, world!</p>-->
+          <h1 class="hero-title mb-4">I am Dio Prasetiyo</h1>
+          <p class="hero-subtitle"><span class="typed" data-typed-items="Back-End Developer, Front-End Developer, Freelancer"></span></p>
+          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+        </div>
+      </div>
+    </div>
+  </div><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="box-shadow-full">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-sm-6 col-md-5">
+                      <div class="about-img">
+                        <img src="assets/img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-7">
+                      <div class="about-info">
+                        <p><span class="title-s">Name: </span> <span>Dio Prasetiyo</span></p>
+                        <p><span class="title-s">Profile: </span> <span>Back end developer</span></p>
+                        <p><span class="title-s">Email: </span> <span>dioprasetiyo@gmail.com</span></p>
+                        <p><span class="title-s">Phone: </span> <span>083148739595</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="skill-mf">
+                    <p class="title-s">Skill</p>
+                    <span>HTML, CSS, JAVASCRIPT</span> <span class="pull-right">85%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <span>Java</span> <span class="pull-right">80%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <span>PHP</span> <span class="pull-right">70%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <span>Golang</span> <span class="pull-right">80%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="about-me pt-4 pt-md-0">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Tentang saya
+                      </h5>
+                    </div>
+                    <p class="lead">
+                      Saya berkuliah di jurusan managemen informatika. Dari sana saya tertarik berbagai Bahasa 
+                      pemograman yang dapat membuat sistem dan aplikasi berbasis web, android maupun ios. Mulai 
+                      saat itu ngoding sudah menjadi rutinitas bagi saya. Saya memiliki ketertarikan dengan hal 
+                      yang baru yang bisa untuk menambah wawasan saya dalam dunia programming.
+                    </p>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services-mf pt-5 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">
+                Kemampuan
+              </h3>
+             
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><img src="assets/img/go-language-official.svg"></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">Golang</h2>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="bi bi-file-earmark-code"></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">Web Development</h2>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="fab fa-java"></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">Java </h2>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="fab fa-python"></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">Python</h2>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="fa fa-database"></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">MySql</h2>
+               
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="fab fa-php"></i></i></span>
+              </div>
+              <div class="service-content">
+                <h2 class="s-title">Php</h2>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Counter Section ======= -->
+    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg1.jpg)">
+      <div class="overlay-mf"></div>
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"><i class="bi bi-book"></i></span>
+              </div>
+              <div class="counter-num">
+                <p data-purecounter-start="1880" data-purecounter-end="2012" data-purecounter-duration="1" class="counter purecounter"></p>
+                <span class="counter-text">SD Negri 1 Bulak Lor </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
+              </div>
+              <div class="counter-num">
+                <p data-purecounter-start="1910" data-purecounter-end="2015" data-purecounter-duration="1" class="counter purecounter"></p>
+                <span class="counter-text">SMPN 3 Jatibarang</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"><i class="bi bi-people"></i></span>
+              </div>
+              <div class="counter-num">
+                <p data-purecounter-start="1930" data-purecounter-end="2018" data-purecounter-duration="1" class="counter purecounter"></p>
+                <span class="counter-text">SMK PGRI Jatibarang</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="counter-ico">
+                <span class="ico-circle"><i class="fas fa-graduation-cap"></i></span>
+              </div>
+              <div class="counter-num">
+                <p data-purecounter-start="1950" data-purecounter-end="2021" data-purecounter-duration="1" class="counter purecounter"></p>
+                <span class="counter-text">Universitas Nasional Pasim</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Counter Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="work" class="portfolio-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">
+                Portofolio
+              </h3>
+              
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="assets/img/Steam.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                <div class="work-img">
+                  <img src="assets/img/Steam.jpg" alt="" class="img-fluid">
+                </div>
+              </a> 
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Sistem Informasi Cuci Steam</h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Java Swing,MySql</span> / <span class="w-date">18 Des. 2020</span>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="assets/img/Kursus.JPG" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                <div class="work-img">
+                  <img src="assets/img/Kursus.JPG" alt="" class="img-fluid">
+                </div>
+              </a>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Sistem Informasi Kursus Online</h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Spring Boot, MySql</span> / <span class="w-date">18 Apr. 2021</span>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="assets/img/3.jpg " data-gallery="portfolioGallery" class="portfolio-lightbox">
+                <div class="work-img">
+                  <img src="assets/img/3.jpg" alt="" class="img-fluid">
+                </div>
+              </a>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Sistem Informasi Service Elektronik </h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">bootstrap</span> / <span class="w-date">18 Sep. 2018</span>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="assets/img/todo.JPG" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                <div class="work-img">
+                  <img src="assets/img/todo0.jpg" alt="" class="img-fluid">
+                </div>
+              </a>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Todo List App</h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Spring boot, MySql</span> / <span class="w-date">23 jul. 2021</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="col-md-4">
+            <div class="work-box">
+              <a href="assets/img/cuti.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                <div class="work-img">
+                  <img src="assets/img/cuti.jpg" alt="" class="img-fluid">
+                </div>
+              </a>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Sistem Informasi Cuti Karyawan</h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Spring Boot, Thymleaf, Github </span> / <span class="w-date">5 Sep. 2021</span>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
+      <div class="overlay-mf"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="testimonial-box">
+                    <div class="author-test">
+                      <img src="assets/img/testimonial-2.jpg" alt="" class="rounded-circle b-shadow-a">
+                      <span class="author">Dio Prasetiyo</span>
+                    </div>
+                    <div class="content-test">
+                      <p class="description lead">
+                       Keberhasilan hanya untuk orang-orang yang terus mencoba dan pantang putus asa.
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-box">
+                    <div class="author-test">
+                      <img src="assets/img/testimonial-21.jpg" alt="" class="rounded-circle b-shadow-a">
+                      <span class="author">Dio prasetiyo</span>
+                    </div>
+                    <div class="content-test">
+                      <p class="description lead">
+                        Code, Eat, Sleep, Repeat
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
+          
+        </div> -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Testimonials Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="title-box text-center">
+              <h3 class="title-a">
+                Pengalaman
+              </h3>
+              <p class="subtitle-a">
+                Berikut beberapa pengalaman saya
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card card-blog">
+              <div class="card-img">
+                <a href="blog-single.html"><img src="assets/img/post-1.jpg" alt="" class="img-fluid"></a>
+              </div>
+              <div class="card-body">
+               
+                <h3 class="card-title">Instruktur Pelatihan Web</h3>
+                <p class="card-description">
+                 Instruktur Pelatihan Web (HTML, CSS, JavaScript) dalam Program Beasiswa Pemberdayaan Umat Berkelanjutan (PUB)
+                 Universitas Nasional Pasim Pada tahun 2021.
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="post-author">
+                  <a href="#">
+                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
+                    <span class="author">Dio Prasetiyo</span>
+                  </a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-blog">
+              <div class="card-img">
+                <img src="assets/img/komp.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="card-body">
+                
+                <h3 class="card-title">Asisten Lab Komputer</h3>
+                <p class="card-description">
+                  Menjadi Asisten Lab Komputer atau Magang di bagian Lab Komputer divisi Hardware di Universitas Nasional Pasim pada tahun 2018-2020
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="post-author">
+                  <a href="#">
+                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
+                    <span class="author">Dio Prasetiyo</span>
+                  </a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-md-4">
+            <div class="card card-blog">
+              <div class="card-img">
+                <a href="blog-single.html"><img src="assets/img/post-3.jpg" alt="" class="img-fluid"></a>
+              </div>
+              <div class="card-body">
+                <div class="card-category-box">
+                  <div class="card-category">
+                    <h6 class="category">Web Design</h6>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="blog-single.html">-</a></h3>
+                <p class="card-description">
+                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
+                  a pellentesque necsdvsdfafas dfvsfsdfsd ,
+                  egestas non nisi.
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="post-author">
+                  <a href="#">
+                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
+                    <span class="author">Dio Prasetiyo</span>
+                  </a>
+                </div>
+                
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
+      <div class="overlay-mf"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="contact-mf">
+              <div id="contact" class="box-shadow-full">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="title-box-2">
+                      <h5 class="title-left">
+                        Ajukan Pertanyaan
+                      </h5>
+                    </div>
+                    <div class='container'>
+                      <div id='error'></div>
+                        <form method='POST' class="php-email-form">
+                          <div class="col-md-12 mb-3">
+                            <fieldset class='form-group'>
+                            <label for='email'>Email address</label>
+                            <input type='email' class='form-control' id='email' name='email'>
+                            <small class='text-muted'>we'll never share your email with anyone else</small>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <fieldset class='form-group'>
+                            <label for='subject'>Subject</label>
+                            <input type='text' class='form-control' id='subject' name='subject'>
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                            <fieldset class='form-group'>
+                            <label for='content'>What you would like to ask us ?</label>
+                            <textarea class='form-control' id='content' name='content' rows='3'></textarea>
+                            </fieldset>
+                          </div>
+                          
+                          <div class="col-md-12 text-center">
+                            <button type='submit' id='submit' name='submit' class='btn btn-primary'>Submit</button>
+                          </div>
+                        </form>
+                        
+
+                    <script type='text/javascript'>
+
+                    setTimeout(function(){
+                        document.getElementById('info-message').style.display = 'none';
+                        /* or
+                        var item = document.getElementById('info-message')
+                        item.parentNode.removeChild(item); 
+                        */
+                      }, 5000);
+                    $('form').submit(function(e){
+                    var error='';
+                    console.log("berhasil")
+                    if($('#email').val()==""){
+                        error +="The email field is required.<br>"
+                    }
+                    if($('#subject').val()==""){
+                        error +="The subject field is required.<br>"
+                    }
+                    if($('#content').val()==""){
+                        error +="The content field is required.<br>"
+                    }
+                    if(error !=""){
+                        $("#error").html('<div class="alert alert-danger"><p><strong>There were error(s) in your form:</strong></p>' + error + '</div>')
+                        return false;
+                    }else{
+                        return true;
+                    }
+                    })
+                
+                
+                    </script>
+
+                      </div>
+                    </div>
+                  <div class="col-md-6">
+                    <div class="title-box-2 pt-4 pt-md-0">
+                      <h5 class="title-left">
+                        Lainnya
+                      </h5>
+                    </div>
+                    <div class="more-info">
+                      <ul class="list-ico">
+                        <li><span class="bi bi-geo-alt"></span> Jl. Ampera 06 Bulak Lor Jatibarang Indramayu,  45273</li>
+                        <li><span class="bi bi-phone"></span> 083148739595</li>
+                        <li><span class="bi bi-envelope"></span> <a href="mailto:dioprasetiyo@gmail.com">dioprasetiyo@gmail.com</a></li>
+                      </ul>
+                    </div>
+                    <div class="socials">
+                      <ul>
+                        <li><a href="https://www.facebook.com/dioprasetiyo21" target="_blank"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
+                        <li><a href="https://www.instagram.com/dioprasetiyo21/" target="_blank"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
+                        <li><a href="https://twitter.com/dioprasetiyo21" target="_blank"><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; Copyright <strong>Dio Prasetiyo</strong>. All Rights Reserved</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+ 
+
+ 
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
