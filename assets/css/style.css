@@ -34,6 +34,16 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+.card-img{
+  height: 280px;
+  
+}
+
+.card
+
+.xl{
+  margin-top: 15%;
+}
 .p-r {
   position: relative;
 }
@@ -1253,6 +1263,7 @@ a:hover {
 .card-blog .card-title {
   font-size: 1.3rem;
   margin-top: .6rem;
+  margin-top: 3%;
 }
 
 .card-blog .card-description {
